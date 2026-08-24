@@ -1,0 +1,2112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Akarsh Vuttaradi, MSc Data Science graduate working across data analytics, machine learning, statistical modelling and data-driven applications.">
+  <meta name="theme-color" content="#0b0d0c">
+  <title>Akarsh Vuttaradi | Data Science &amp; Analytics</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================================================
+       1. VARIABLES
+       ========================================================= */
+    :root {
+      --bg: #05070b;
+      --bg-2: #080b12;
+      --surface: #0b1019;
+      --surface-2: #101722;
+      --text: #eef4ff;
+      --muted: #9ba8ba;
+      --faint: #647184;
+      --accent: #4da3ff;
+      --accent-soft: rgba(77, 163, 255, 0.12);
+      --amber: #7dd3fc;
+      --border: rgba(180, 205, 235, 0.13);
+      --border-strong: rgba(120, 180, 245, 0.28);
+      --max: 1180px;
+      --radius: 2px;
+      --nav-height: 76px;
+    }
+
+    /* =========================================================
+       2. RESET
+       ========================================================= */
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "DM Sans", system-ui, sans-serif;
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+
+    img, svg { display: block; max-width: 100%; }
+
+    button, a { font: inherit; }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      color: inherit;
+      border: 0;
+      background: none;
+      cursor: pointer;
+    }
+
+    ::selection {
+      color: var(--bg);
+      background: var(--accent);
+    }
+
+    /* =========================================================
+       3. GLOBAL
+       ========================================================= */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      opacity: 0.26;
+      background-image:
+        linear-gradient(rgba(77,163,255,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(77,163,255,0.045) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, black, transparent 75%);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 78% 15%, rgba(77,163,255,0.045), transparent 24%),
+        radial-gradient(circle at 12% 55%, rgba(232,189,104,0.025), transparent 22%);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 620px;
+      height: 260px;
+      left: 38%;
+      top: 16%;
+      transform: translateX(-50%);
+      pointer-events: none;
+      background: radial-gradient(ellipse, rgba(77,163,255,0.10), transparent 68%);
+      filter: blur(12px);
+    }
+
+    .hero::after {
+      content: "DS / 01";
+      position: absolute;
+      right: 22px;
+      bottom: 28px;
+      color: rgba(130,160,195,0.24);
+      font: 500 0.58rem "JetBrains Mono", monospace;
+      letter-spacing: 0.16em;
+    }
+
+    .section-heading h2::after {
+      content: "";
+      display: inline-block;
+      width: 0.35em;
+      height: 0.35em;
+      margin-left: 0.14em;
+      vertical-align: 0.18em;
+      background: var(--accent);
+      box-shadow: 0 0 18px rgba(77,163,255,0.35);
+    }
+
+    .project {
+      position: relative;
+    }
+
+    .project::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 42px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .project-number {
+      text-shadow: 0 0 20px rgba(77,163,255,0.22);
+    }
+
+    .tag:hover,
+    .tech:hover,
+    .exploring-list span:hover {
+      border-color: rgba(77,163,255,0.48);
+      color: var(--text);
+      background: rgba(77,163,255,0.045);
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--max));
+      margin-inline: auto;
+    }
+
+    .mono {
+      font-family: "JetBrains Mono", monospace;
+      letter-spacing: -0.02em;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 22px;
+      color: var(--accent);
+      font: 500 0.72rem/1.2 "JetBrains Mono", monospace;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 26px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .section {
+      padding: 120px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(240px, 0.8fr) minmax(300px, 1fr);
+      gap: 60px;
+      align-items: end;
+      margin-bottom: 58px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: clamp(2.4rem, 6vw, 4.9rem);
+      line-height: 0.95;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .section-heading p {
+      max-width: 520px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .accent { color: var(--accent); }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 650ms ease, transform 650ms ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .rule {
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* =========================================================
+       4. NAVIGATION
+       ========================================================= */
+    .site-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      height: var(--nav-height);
+      border-bottom: 1px solid transparent;
+      transition: background 220ms ease, border-color 220ms ease, backdrop-filter 220ms ease;
+    }
+
+    .site-nav.scrolled {
+      background: rgba(11,13,12,0.88);
+      border-color: var(--border);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      font: 600 0.78rem "JetBrains Mono", monospace;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+
+    .brand span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      margin-left: auto;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font: 500 0.68rem "JetBrains Mono", monospace;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 180ms ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible { color: var(--text); }
+
+    .nav-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 11px;
+      border: 1px solid rgba(185,243,106,0.22);
+      color: var(--accent);
+      font: 500 0.63rem "JetBrains Mono", monospace;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(77,163,255,0.07);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--border);
+    }
+
+    /* =========================================================
+       5. HERO
+       ========================================================= */
+    .hero {
+      min-height: 100svh;
+      padding: calc(var(--nav-height) + 70px) 0 70px;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+      gap: 70px;
+      align-items: center;
+    }
+
+    .hero-copy { max-width: 760px; }
+
+    .hero-kicker {
+      margin-bottom: 30px;
+      color: var(--muted);
+      font: 500 0.72rem "JetBrains Mono", monospace;
+      letter-spacing: 0.12em;
+    }
+
+    .hero h1 {
+      max-width: 800px;
+      margin: 0;
+      font-size: clamp(4.2rem, 9.5vw, 8.8rem);
+      line-height: 0.86;
+      letter-spacing: -0.075em;
+      font-weight: 600;
+    }
+
+    .hero h1 em {
+      color: var(--accent);
+      font-style: normal;
+    }
+
+    .hero-description {
+      max-width: 650px;
+      margin: 34px 0 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.6vw, 1.22rem);
+      line-height: 1.7;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 28px;
+    }
+
+    .tag {
+      padding: 7px 9px;
+      border: 1px solid var(--border);
+      color: #c8cec7;
+      font: 500 0.67rem "JetBrains Mono", monospace;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 34px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 46px;
+      padding: 0 17px;
+      border: 1px solid var(--border-strong);
+      font: 600 0.67rem "JetBrains Mono", monospace;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: background 180ms ease, color 180ms ease, border-color 180ms ease, transform 180ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+    }
+
+    .button.primary {
+      color: var(--bg);
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .button.primary:hover { background: #cafc82; }
+
+    .hero-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 42px;
+      color: var(--muted);
+      font: 500 0.66rem "JetBrains Mono", monospace;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .hero-status .status-dot { width: 5px; height: 5px; }
+
+    .signal-panel {
+      position: relative;
+      min-height: 480px;
+      border: 1px solid var(--border);
+      background: rgba(18,22,19,0.66);
+      overflow: hidden;
+    }
+
+    .signal-panel::before {
+      content: "DECORATIVE / ANALYTICAL SIGNAL";
+      position: absolute;
+      top: 18px;
+      left: 20px;
+      z-index: 2;
+      color: #667066;
+      font: 500 0.58rem "JetBrains Mono", monospace;
+      letter-spacing: 0.1em;
+    }
+
+    .signal-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(77,163,255,0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(77,163,255,0.055) 1px, transparent 1px);
+      background-size: 44px 44px;
+      transform: translateY(0);
+      animation: gridDrift 12s linear infinite;
+    }
+
+    .signal-svg {
+      position: absolute;
+      inset: 12% 5% 7%;
+      width: 90%;
+      height: 81%;
+    }
+
+    .signal-line {
+      fill: none;
+      stroke: var(--accent);
+      stroke-width: 1.2;
+      stroke-dasharray: 4 8;
+      opacity: 0.55;
+      animation: dash 10s linear infinite;
+    }
+
+    .signal-edge {
+      stroke: rgba(77,163,255,0.28);
+      stroke-width: 1;
+      stroke-dasharray: 2 7;
+      animation: dash 8s linear infinite reverse;
+    }
+
+    .signal-node {
+      fill: var(--bg);
+      stroke: var(--accent);
+      stroke-width: 1.5;
+      animation: nodePulse 3s ease-in-out infinite;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    .signal-node:nth-of-type(2) { animation-delay: -0.8s; }
+    .signal-node:nth-of-type(3) { animation-delay: -1.6s; }
+    .signal-node:nth-of-type(4) { animation-delay: -2.2s; }
+
+    .signal-label {
+      fill: #798278;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 9px;
+      letter-spacing: 0.08em;
+    }
+
+    .signal-index {
+      position: absolute;
+      bottom: 18px;
+      left: 20px;
+      right: 20px;
+      display: flex;
+      justify-content: space-between;
+      color: #606960;
+      font: 500 0.58rem "JetBrains Mono", monospace;
+      letter-spacing: 0.06em;
+    }
+
+    /* =========================================================
+       6. METRICS
+       ========================================================= */
+    .metrics {
+      padding: 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .metric {
+      min-height: 190px;
+      padding: 34px 24px;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .metric:first-child { padding-left: 0; }
+    .metric:last-child {
+      border-right: 0;
+      padding-right: 0;
+    }
+
+    .metric-value {
+      color: var(--text);
+      font: 500 clamp(2.3rem, 5vw, 4rem)/1 "JetBrains Mono", monospace;
+      letter-spacing: -0.08em;
+    }
+
+    .metric-value .accent { color: var(--accent); }
+
+    .metric-label {
+      color: var(--muted);
+      font: 500 0.64rem/1.4 "JetBrains Mono", monospace;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    /* =========================================================
+       7. PROJECTS
+       ========================================================= */
+    .project {
+      display: grid;
+      grid-template-columns: minmax(0, 1.22fr) minmax(300px, 0.78fr);
+      min-height: 560px;
+      border-top: 1px solid var(--border);
+      padding: 58px 0;
+      gap: 70px;
+      align-items: stretch;
+    }
+
+    .project:last-child { border-bottom: 1px solid var(--border); }
+
+    .project-copy {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-number {
+      margin-bottom: 18px;
+      color: var(--accent);
+      font: 500 0.66rem "JetBrains Mono", monospace;
+      letter-spacing: 0.12em;
+    }
+
+    .project-label {
+      margin-bottom: 18px;
+      color: var(--muted);
+      font: 500 0.64rem "JetBrains Mono", monospace;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .project h3 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(2.2rem, 5vw, 4.7rem);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+      font-weight: 600;
+    }
+
+    .project-description {
+      max-width: 720px;
+      margin: 28px 0 0;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .project-bottom {
+      margin-top: auto;
+      padding-top: 38px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .project-list-title {
+      margin: 0 0 12px;
+      color: #dfe4dc;
+      font: 500 0.63rem "JetBrains Mono", monospace;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .project-list {
+      display: grid;
+      gap: 5px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .project-list li::before {
+      content: "—";
+      color: var(--accent);
+      margin-right: 8px;
+    }
+
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      align-content: start;
+      gap: 6px;
+    }
+
+    .tech {
+      padding: 5px 7px;
+      border: 1px solid var(--border);
+      color: #b7beb5;
+      font: 500 0.6rem "JetBrains Mono", monospace;
+    }
+
+    .project-link {
+      margin-top: 28px;
+      width: fit-content;
+    }
+
+    .project-visual {
+      min-height: 400px;
+      border: 1px solid var(--border);
+      background: #101310;
+      position: relative;
+      overflow: hidden;
+      transition: transform 260ms ease, border-color 260ms ease;
+    }
+
+    .project:hover .project-visual {
+      transform: translateY(-5px);
+      border-color: var(--border-strong);
+    }
+
+    .visual-note {
+      position: absolute;
+      z-index: 2;
+      left: 18px;
+      bottom: 15px;
+      color: #616a61;
+      font: 500 0.56rem "JetBrains Mono", monospace;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .dash-visual {
+      width: 100%;
+      height: 100%;
+      min-height: 400px;
+      padding: 22px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 20px;
+      background:
+        linear-gradient(rgba(77,163,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(77,163,255,0.025) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    .dash-top {
+      display: flex;
+      justify-content: space-between;
+      color: #687168;
+      font: 500 0.58rem "JetBrains Mono", monospace;
+    }
+
+    .dash-panels {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 10px;
+    }
+
+    .dash-box {
+      border: 1px solid var(--border);
+      padding: 13px;
+      min-width: 0;
+    }
+
+    .dash-box.full { grid-column: 1 / -1; }
+
+    .dash-number {
+      margin: 0 0 16px;
+      color: var(--text);
+      font: 500 1.25rem "JetBrains Mono", monospace;
+    }
+
+    .dash-bar {
+      height: 5px;
+      margin-top: 9px;
+      background: #222923;
+      overflow: hidden;
+    }
+
+    .dash-bar span {
+      display: block;
+      height: 100%;
+      background: var(--accent);
+      opacity: 0.7;
+    }
+
+    .dash-bars {
+      display: flex;
+      align-items: end;
+      gap: 5px;
+      height: 92px;
+    }
+
+    .dash-bars span {
+      flex: 1;
+      background: rgba(77,163,255,0.5);
+    }
+
+    .network-visual {
+      min-height: 400px;
+      position: relative;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(77,163,255,0.055), transparent 38%),
+        linear-gradient(rgba(77,163,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(77,163,255,0.025) 1px, transparent 1px);
+      background-size: auto, 32px 32px, 32px 32px;
+    }
+
+    .network-svg {
+      position: absolute;
+      inset: 9%;
+      width: 82%;
+      height: 82%;
+    }
+
+    .network-edge {
+      stroke: rgba(77,163,255,0.24);
+      stroke-width: 1;
+      stroke-dasharray: 3 6;
+      animation: dash 7s linear infinite;
+    }
+
+    .network-node {
+      fill: #0d100e;
+      stroke: var(--accent);
+      stroke-width: 1.4;
+      animation: nodePulse 3.5s ease-in-out infinite;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    .network-node:nth-of-type(2) { animation-delay: -1s; }
+    .network-node:nth-of-type(3) { animation-delay: -2s; }
+    .network-node:nth-of-type(4) { animation-delay: -2.7s; }
+
+    .network-core {
+      fill: var(--accent);
+      opacity: 0.8;
+    }
+
+    .forecast-visual {
+      min-height: 400px;
+      background:
+        linear-gradient(rgba(77,163,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(77,163,255,0.025) 1px, transparent 1px);
+      background-size: 32px 32px;
+      position: relative;
+    }
+
+    .forecast-svg {
+      position: absolute;
+      inset: 15% 7% 15%;
+      width: 86%;
+      height: 70%;
+    }
+
+    .forecast-axis {
+      stroke: rgba(220,231,216,0.13);
+      stroke-width: 1;
+    }
+
+    .forecast-line {
+      fill: none;
+      stroke: var(--accent);
+      stroke-width: 1.5;
+    }
+
+    .forecast-dash {
+      fill: none;
+      stroke: var(--amber);
+      stroke-width: 1.2;
+      stroke-dasharray: 5 6;
+    }
+
+    .forecast-point {
+      fill: var(--bg);
+      stroke: var(--accent);
+      stroke-width: 1.2;
+    }
+
+    /* =========================================================
+       8. EXPERIENCE
+       ========================================================= */
+    .timeline {
+      border-top: 1px solid var(--border);
+    }
+
+    .experience-item {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 60px;
+      padding: 42px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .experience-meta {
+      color: var(--faint);
+      font: 500 0.66rem/1.5 "JetBrains Mono", monospace;
+      text-transform: uppercase;
+    }
+
+    .experience-role {
+      margin: 0;
+      font-size: clamp(1.7rem, 3vw, 2.7rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .experience-company {
+      margin-top: 8px;
+      color: var(--accent);
+      font: 500 0.73rem "JetBrains Mono", monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .experience-description {
+      max-width: 760px;
+      margin: 16px 0 22px;
+      color: var(--muted);
+    }
+
+    .experience-bullets {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      display: grid;
+      gap: 8px;
+      font-size: 0.9rem;
+    }
+
+    /* =========================================================
+       9. PUBLICATION
+       ========================================================= */
+    .research-note {
+      display: grid;
+      grid-template-columns: 1fr 0.7fr;
+      gap: 70px;
+      padding: 58px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .research-title {
+      max-width: 800px;
+      margin: 0;
+      font-size: clamp(2.3rem, 5vw, 5rem);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+      font-weight: 600;
+    }
+
+    .research-description {
+      max-width: 700px;
+      margin: 28px 0 0;
+      color: var(--muted);
+    }
+
+    .research-meta {
+      display: grid;
+      align-content: start;
+      gap: 28px;
+    }
+
+    .research-meta-block {
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .research-meta-label {
+      margin-bottom: 8px;
+      color: var(--faint);
+      font: 500 0.62rem "JetBrains Mono", monospace;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .research-meta-value {
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .research-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    /* =========================================================
+       10. ABOUT
+       ========================================================= */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 70px;
+    }
+
+    .about-index {
+      color: var(--accent);
+      font: 500 0.68rem "JetBrains Mono", monospace;
+      letter-spacing: 0.08em;
+    }
+
+    .about-copy p {
+      max-width: 800px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(1.25rem, 2.4vw, 1.8rem);
+      line-height: 1.5;
+      letter-spacing: -0.025em;
+    }
+
+    .about-copy p + p {
+      margin-top: 28px;
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    /* =========================================================
+       11. SKILLS
+       ========================================================= */
+    .skill-matrix {
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .skill-group {
+      min-height: 190px;
+      padding: 28px 24px 30px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .skill-group:nth-child(3n) { border-right: 0; }
+
+    .skill-group h3 {
+      margin: 0 0 18px;
+      color: var(--accent);
+      font: 500 0.65rem "JetBrains Mono", monospace;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .skill-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+    }
+
+    .skill-items span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* =========================================================
+       12. EDUCATION
+       ========================================================= */
+    .education-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid var(--border);
+    }
+
+    .education-item {
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .education-item + .education-item {
+      border-left: 1px solid var(--border);
+      padding-left: 32px;
+    }
+
+    .education-degree {
+      margin: 0;
+      font-size: clamp(1.4rem, 2.5vw, 2.1rem);
+      letter-spacing: -0.035em;
+      line-height: 1.1;
+    }
+
+    .education-institution {
+      margin-top: 12px;
+      color: var(--accent);
+      font: 500 0.7rem "JetBrains Mono", monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .education-years {
+      margin-top: 9px;
+      color: var(--faint);
+      font: 500 0.65rem "JetBrains Mono", monospace;
+    }
+
+    .exploring {
+      margin-top: 54px;
+    }
+
+    .exploring-title {
+      margin: 0 0 16px;
+      color: var(--faint);
+      font: 500 0.66rem "JetBrains Mono", monospace;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .exploring-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .exploring-list span {
+      padding: 9px 11px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font: 500 0.68rem "JetBrains Mono", monospace;
+    }
+
+    /* =========================================================
+       13. CONTACT
+       ========================================================= */
+    .contact {
+      padding-bottom: 90px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.75fr;
+      gap: 70px;
+      align-items: end;
+    }
+
+    .contact h2 {
+      max-width: 850px;
+      margin: 0;
+      font-size: clamp(3.3rem, 9vw, 8rem);
+      line-height: 0.86;
+      letter-spacing: -0.075em;
+      font-weight: 600;
+    }
+
+    .contact-copy {
+      max-width: 620px;
+      margin: 28px 0 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .contact-links {
+      display: grid;
+      gap: 9px;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 52px;
+      padding: 0 14px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font: 500 0.68rem "JetBrains Mono", monospace;
+      transition: color 180ms ease, border-color 180ms ease, transform 180ms ease;
+    }
+
+    .contact-link:hover {
+      color: var(--text);
+      border-color: var(--accent);
+      transform: translateX(4px);
+    }
+
+    .contact-link span:last-child { color: var(--accent); }
+
+    /* =========================================================
+       14. FOOTER
+       ========================================================= */
+    footer {
+      padding: 28px 0 34px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--faint);
+      font: 500 0.62rem "JetBrains Mono", monospace;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .footer-inner strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* =========================================================
+       15. RESPONSIVE
+       ========================================================= */
+    @media (max-width: 980px) {
+      .hero-grid,
+      .project,
+      .research-note,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid { gap: 50px; }
+
+      .signal-panel {
+        min-height: 390px;
+      }
+
+      .project-visual { order: -1; }
+
+      .project {
+        gap: 38px;
+      }
+
+      .section-heading {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .skill-matrix {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .skill-group:nth-child(3n) { border-right: 1px solid var(--border); }
+      .skill-group:nth-child(2n) { border-right: 0; }
+
+      .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .metric:nth-child(2) { border-right: 0; }
+      .metric:nth-child(-n+2) { border-bottom: 1px solid var(--border); }
+      .metric:nth-child(3) { padding-left: 0; }
+    }
+
+    @media (max-width: 760px) {
+      :root { --nav-height: 68px; }
+
+      .container { width: min(calc(100% - 28px), var(--max)); }
+
+      .site-nav { height: var(--nav-height); }
+
+      .menu-toggle {
+        display: grid;
+        place-items: center;
+      }
+
+      .menu-toggle svg { width: 19px; }
+
+      .nav-links {
+        position: absolute;
+        top: calc(100% + 1px);
+        left: 0;
+        right: 0;
+        display: none;
+        padding: 14px;
+        margin: 0;
+        border-bottom: 1px solid var(--border);
+        background: rgba(11,13,12,0.97);
+        backdrop-filter: blur(14px);
+      }
+
+      .nav-links.open {
+        display: grid;
+        gap: 0;
+      }
+
+      .nav-links a {
+        padding: 14px 4px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-links a:last-child { border-bottom: 0; }
+
+      .nav-status { display: none; }
+
+      .hero {
+        min-height: auto;
+        padding-top: calc(var(--nav-height) + 60px);
+        padding-bottom: 70px;
+      }
+
+      .hero h1 {
+        font-size: clamp(3.8rem, 19vw, 7rem);
+      }
+
+      .hero-description {
+        font-size: 1rem;
+      }
+
+      .signal-panel { min-height: 320px; }
+
+      .metrics-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .metric {
+        min-height: 145px;
+        padding: 24px 12px;
+      }
+
+      .metric:nth-child(odd) { padding-left: 0; }
+      .metric:nth-child(even) { padding-right: 0; }
+
+      .metric-value { font-size: clamp(1.75rem, 9vw, 2.8rem); }
+
+      .section { padding: 82px 0; }
+
+      .project {
+        padding: 40px 0;
+      }
+
+      .project-visual,
+      .dash-visual,
+      .network-visual,
+      .forecast-visual {
+        min-height: 300px;
+      }
+
+      .project-bottom {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .experience-item {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 32px 0;
+      }
+
+      .research-note { gap: 45px; }
+
+      .skill-matrix,
+      .education-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skill-group,
+      .skill-group:nth-child(2n),
+      .skill-group:nth-child(3n) {
+        border-right: 0;
+      }
+
+      .education-item + .education-item {
+        border-left: 0;
+        padding-left: 0;
+      }
+
+      .contact-grid { gap: 42px; }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-actions .button { width: 100%; }
+
+      .metrics-grid { grid-template-columns: 1fr; }
+
+      .metric,
+      .metric:nth-child(2),
+      .metric:nth-child(3) {
+        min-height: 125px;
+        padding: 22px 0;
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .metric:last-child { border-bottom: 0; }
+
+      .project h3 { font-size: 2.55rem; }
+
+      .dash-panels { grid-template-columns: 1fr; }
+      .dash-box.full { grid-column: auto; }
+
+      .contact h2 { font-size: 4.1rem; }
+    }
+
+    /* =========================================================
+       16. ANIMATIONS
+       ========================================================= */
+    @keyframes gridDrift {
+      from { transform: translateY(0); }
+      to { transform: translateY(44px); }
+    }
+
+    @keyframes dash {
+      to { stroke-dashoffset: -80; }
+    }
+
+    @keyframes nodePulse {
+      0%, 100% { transform: scale(1); opacity: 0.78; }
+      50% { transform: scale(1.18); opacity: 1; }
+    }
+
+    /* =========================================================
+       17. JAVASCRIPT
+       ========================================================= */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- =======================================================
+       NAVIGATION
+       ======================================================= -->
+  <header class="site-nav" id="top">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Akarsh Vuttaradi home">AKARSH <span>/</span> DATA</a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Primary navigation">
+        <a href="#work">Work</a>
+        <a href="#experience">Experience</a>
+        <a href="#publication">Publication</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-status">
+        <span class="status-dot" aria-hidden="true"></span>
+        Open to opportunities
+      </div>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="hero-kicker">DATA SCIENCE / ANALYTICS / MACHINE LEARNING</p>
+
+          <h1>Turning <em>data</em> into<br>decisions.</h1>
+
+          <p class="hero-description">
+            MSc Data Science graduate building analytical, machine learning and
+            data-driven solutions across real-world problems.
+          </p>
+
+          <div class="hero-tags" aria-label="Core skills">
+            <span class="tag">Python</span>
+            <span class="tag">SQL</span>
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Statistics</span>
+            <span class="tag">Power BI</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Neo4j</span>
+          </div>
+
+          <div class="hero-actions">
+            <a class="button primary" href="#work">View selected work <span aria-hidden="true">↘</span></a>
+            <a class="button" href="#contact">Get in touch <span aria-hidden="true">↗</span></a>
+          </div>
+
+          <div class="hero-status">
+            <span class="status-dot" aria-hidden="true"></span>
+            Open to data &amp; analytics opportunities
+          </div>
+        </div>
+
+        <div class="signal-panel reveal" aria-label="Decorative analytical signal visual">
+          <div class="signal-grid" aria-hidden="true"></div>
+          <svg class="signal-svg" viewBox="0 0 520 420" role="img" aria-label="Decorative network and time-series graphic">
+            <g fill="none">
+              <path class="signal-edge" d="M56 282 L160 184 L265 245 L355 116 L462 183"/>
+              <path class="signal-edge" d="M160 184 L198 342 L355 116"/>
+              <path class="signal-edge" d="M265 245 L410 326 L462 183"/>
+              <path class="signal-line" d="M28 330 C90 270, 120 286, 160 252 S230 184, 276 214 S335 284, 376 224 S434 140, 494 102"/>
+            </g>
+            <g>
+              <circle class="signal-node" cx="56" cy="282" r="6"/>
+              <circle class="signal-node" cx="160" cy="184" r="8"/>
+              <circle class="signal-node" cx="265" cy="245" r="7"/>
+              <circle class="signal-node" cx="355" cy="116" r="9"/>
+              <circle class="signal-node" cx="462" cy="183" r="6"/>
+              <circle class="signal-node" cx="198" cy="342" r="5"/>
+              <circle class="signal-node" cx="410" cy="326" r="5"/>
+            </g>
+            <g class="signal-label">
+              <text x="43" y="305">01</text>
+              <text x="147" y="164">02</text>
+              <text x="253" y="269">03</text>
+              <text x="344" y="94">04</text>
+              <text x="449" y="207">05</text>
+              <text x="184" y="364">06</text>
+              <text x="397" y="348">07</text>
+            </g>
+          </svg>
+          <div class="signal-index">
+            <span>NODE / SIGNAL / FLOW</span>
+            <span>DECORATIVE ONLY</span>
+          </div>
+          <div style="position:absolute;right:20px;top:52px;color:#66758a;font:500 0.56rem 'JetBrains Mono',monospace;letter-spacing:.08em;">
+            SYSTEM / READY
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         METRICS
+         ===================================================== -->
+    <section class="metrics" aria-label="Portfolio metrics">
+      <div class="container metrics-grid">
+        <div class="metric reveal">
+          <div class="metric-value"><span data-count="500" data-suffix="K+">0</span></div>
+          <div class="metric-label">Transactions analysed</div>
+        </div>
+        <div class="metric reveal">
+          <div class="metric-value"><span data-count="500" data-suffix="+">0</span></div>
+          <div class="metric-label">Financial entities modelled</div>
+        </div>
+        <div class="metric reveal">
+          <div class="metric-value"><span class="accent">$9.73M</span></div>
+          <div class="metric-label">Retail revenue analysed</div>
+        </div>
+        <div class="metric reveal">
+          <div class="metric-value"><span data-count="3" data-suffix="+">0</span></div>
+          <div class="metric-label">End-to-end data projects</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         SELECTED WORK
+         ===================================================== -->
+    <section class="section" id="work">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow">Selected work</p>
+            <h2>Analytical<br>case studies.</h2>
+          </div>
+          <p>From transactional analytics to graph-based machine learning.</p>
+        </div>
+
+        <!-- PROJECT 01 -->
+        <article class="project reveal">
+          <div class="project-copy">
+            <div>
+              <div class="project-number">PROJECT 01</div>
+              <div class="project-label">Business analytics / Machine learning</div>
+              <h3>End-to-end retail customer analytics</h3>
+              <p class="project-description">
+                Analysed 500,000+ retail transaction records using Python, SQL and Power BI
+                to investigate customer behaviour, product performance and regional sales trends.
+              </p>
+            </div>
+
+            <div class="project-bottom">
+              <div>
+                <p class="project-list-title">Key work</p>
+                <ul class="project-list">
+                  <li>Data cleaning and preprocessing</li>
+                  <li>Feature engineering</li>
+                  <li>Exploratory analysis</li>
+                  <li>Customer segmentation</li>
+                  <li>SQL analytical workflows</li>
+                  <li>Power BI dashboard development</li>
+                  <li>Customer retention prediction</li>
+                  <li>High-value customer identification</li>
+                </ul>
+              </div>
+
+              <div>
+                <p class="project-list-title">Technology</p>
+                <div class="tech-list">
+                  <span class="tech">Python</span>
+                  <span class="tech">SQL</span>
+                  <span class="tech">Pandas</span>
+                  <span class="tech">NumPy</span>
+                  <span class="tech">Power BI</span>
+                  <span class="tech">Scikit-learn</span>
+                  <span class="tech">PostgreSQL</span>
+                </div>
+
+                <a class="button project-link" href="https://github.com/imakarshv/Retail-Customer-Analytics" target="_blank" rel="noopener noreferrer">
+                  View on GitHub ↗
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-visual" aria-label="Decorative business analytics visual">
+            <div class="dash-visual">
+              <div class="dash-top">
+                <span>RETAIL / ANALYTICS</span>
+                <span>DECORATIVE VISUAL</span>
+              </div>
+
+              <div class="dash-panels">
+                <div class="dash-box">
+                  <div class="dash-number">500K+</div>
+                  <div class="metric-label">Transactions</div>
+                  <div class="dash-bar"><span style="width: 84%"></span></div>
+                </div>
+
+                <div class="dash-box">
+                  <div class="dash-number">$9.73M</div>
+                  <div class="metric-label">Revenue analysed</div>
+                  <div class="dash-bar"><span style="width: 67%"></span></div>
+                </div>
+
+                <div class="dash-box full">
+                  <div class="metric-label">Orders / customer / regional signals</div>
+                  <div class="dash-bars" aria-hidden="true">
+                    <span style="height: 34%"></span>
+                    <span style="height: 48%"></span>
+                    <span style="height: 42%"></span>
+                    <span style="height: 66%"></span>
+                    <span style="height: 58%"></span>
+                    <span style="height: 78%"></span>
+                    <span style="height: 63%"></span>
+                    <span style="height: 88%"></span>
+                    <span style="height: 72%"></span>
+                    <span style="height: 94%"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="visual-note">Decorative representation — not project output</div>
+          </div>
+        </article>
+
+        <!-- PROJECT 02 -->
+        <article class="project reveal">
+          <div class="project-copy">
+            <div>
+              <div class="project-number">PROJECT 02</div>
+              <div class="project-label">Graph ML / Financial data</div>
+              <h3>Graph-based machine learning for financial market analysis</h3>
+              <p class="project-description">
+                Designed an end-to-end graph analytics pipeline using Neo4j and machine learning
+                to model relationships across more than 500 financial entities.
+              </p>
+            </div>
+
+            <div class="project-bottom">
+              <div>
+                <p class="project-list-title">Key work</p>
+                <ul class="project-list">
+                  <li>Data ingestion</li>
+                  <li>Graph construction</li>
+                  <li>Graph feature engineering</li>
+                  <li>Graph embeddings</li>
+                  <li>Relationship analysis</li>
+                  <li>Random Forest modelling</li>
+                  <li>Model evaluation</li>
+                  <li>Comparison with traditional approaches</li>
+                </ul>
+              </div>
+
+              <div>
+                <p class="project-list-title">Technology</p>
+                <div class="tech-list">
+                  <span class="tech">Python</span>
+                  <span class="tech">Neo4j</span>
+                  <span class="tech">Neo4j Graph Data Science</span>
+                  <span class="tech">NetworkX</span>
+                  <span class="tech">Scikit-learn</span>
+                  <span class="tech">Machine Learning</span>
+                </div>
+
+                <span class="button project-link" aria-label="Repository available on request">
+                  Repository available on request
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-visual network-visual" aria-label="Decorative financial graph network visual">
+            <svg class="network-svg" viewBox="0 0 500 430" role="img" aria-label="Decorative graph network">
+              <g fill="none">
+                <path class="network-edge" d="M85 95 L230 68 L400 118 L350 280 L430 362"/>
+                <path class="network-edge" d="M230 68 L270 205 L350 280 L155 338 L85 95"/>
+                <path class="network-edge" d="M270 205 L430 362"/>
+                <path class="network-edge" d="M85 95 L270 205 L400 118"/>
+                <path class="network-edge" d="M155 338 L350 280"/>
+              </g>
+              <g>
+                <circle class="network-node" cx="85" cy="95" r="8"/>
+                <circle class="network-node" cx="230" cy="68" r="10"/>
+                <circle class="network-node" cx="400" cy="118" r="7"/>
+                <circle class="network-node" cx="270" cy="205" r="13"/>
+                <circle class="network-node" cx="350" cy="280" r="9"/>
+                <circle class="network-node" cx="155" cy="338" r="7"/>
+                <circle class="network-node" cx="430" cy="362" r="6"/>
+                <circle class="network-core" cx="270" cy="205" r="3"/>
+              </g>
+            </svg>
+            <div class="visual-note">Decorative representation — no model accuracy shown</div>
+          </div>
+        </article>
+
+        <!-- PROJECT 03 -->
+        <article class="project reveal">
+          <div class="project-copy">
+            <div>
+              <div class="project-number">PROJECT 03</div>
+              <div class="project-label">Time series / Forecasting</div>
+              <h3>Sales forecasting using time-series analysis</h3>
+              <p class="project-description">
+                Developed ARIMA and SARIMA forecasting models to analyse historical sales trends
+                and generate demand forecasts for business planning and inventory optimisation.
+              </p>
+            </div>
+
+            <div class="project-bottom">
+              <div>
+                <p class="project-list-title">Key work</p>
+                <ul class="project-list">
+                  <li>Exploratory data analysis</li>
+                  <li>Data preprocessing</li>
+                  <li>Feature engineering</li>
+                  <li>Trend analysis</li>
+                  <li>Seasonal analysis</li>
+                  <li>ARIMA modelling</li>
+                  <li>SARIMA modelling</li>
+                  <li>Forecast evaluation</li>
+                </ul>
+              </div>
+
+              <div>
+                <p class="project-list-title">Technology</p>
+                <div class="tech-list">
+                  <span class="tech">Python</span>
+                  <span class="tech">ARIMA</span>
+                  <span class="tech">SARIMA</span>
+                  <span class="tech">Time Series</span>
+                  <span class="tech">Statistical Modelling</span>
+                  <span class="tech">EDA</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-visual forecast-visual" aria-label="Decorative time series visual">
+            <svg class="forecast-svg" viewBox="0 0 500 330" role="img" aria-label="Decorative time-series line">
+              <g>
+                <line class="forecast-axis" x1="25" y1="280" x2="475" y2="280"/>
+                <line class="forecast-axis" x1="25" y1="45" x2="25" y2="280"/>
+                <path class="forecast-line" d="M25 242 C48 214, 58 220, 76 226 S105 182, 125 190 S152 214, 170 162 S205 116, 225 145 S255 190, 275 132 S308 88, 328 118"/>
+                <path class="forecast-dash" d="M328 118 C350 94, 372 128, 390 96 S425 65, 475 85"/>
+                <circle class="forecast-point" cx="25" cy="242" r="4"/>
+                <circle class="forecast-point" cx="125" cy="190" r="4"/>
+                <circle class="forecast-point" cx="225" cy="145" r="4"/>
+                <circle class="forecast-point" cx="328" cy="118" r="4"/>
+              </g>
+            </svg>
+            <div class="visual-note">Decorative representation — no forecast accuracy shown</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         EXPERIENCE
+         ===================================================== -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow">Experience</p>
+            <h2>Work in<br>practice.</h2>
+          </div>
+          <p>Technical work spanning data applications, databases, web platforms and workflow automation.</p>
+        </div>
+
+        <div class="timeline">
+          <article class="experience-item reveal">
+            <div class="experience-meta">May 2023 — Present</div>
+            <div>
+              <h3 class="experience-role">Data Science &amp; Technology Volunteer</h3>
+              <div class="experience-company">Vasudhaiva Kutumbakam</div>
+              <p class="experience-description">
+                Leading the design and development of the organisation's digital platform to support
+                online presence and digital operations.
+              </p>
+              <ul class="experience-bullets">
+                <li>Developed a web application using FastAPI, PostgreSQL, HTML, CSS, JavaScript, Bootstrap, Jinja2 and SQLAlchemy.</li>
+                <li>Designed a relational PostgreSQL database for organisational content, events, projects and galleries.</li>
+                <li>Built a secure administrator portal with authentication.</li>
+                <li>Worked with NGO stakeholders to gather requirements and improve the platform.</li>
+                <li>Managed source code and version control using Git and GitHub.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="experience-item reveal">
+            <div class="experience-meta">Sep 2023 — Dec 2023</div>
+            <div>
+              <h3 class="experience-role">Data Science Intern</h3>
+              <div class="experience-company">APPIT Software Solutions</div>
+              <ul class="experience-bullets" style="margin-top: 20px;">
+                <li>Developed a Flask-based data management solution integrating SQL-driven data workflows.</li>
+                <li>Designed relational database architecture replacing Excel-based workflows.</li>
+                <li>Automated data upload and retrieval processes.</li>
+                <li>Used Flask-SQLAlchemy for database interactions.</li>
+                <li>Improved data accessibility and workflow efficiency.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="experience-item reveal">
+            <div class="experience-meta">Jul 2023 — Sep 2023</div>
+            <div>
+              <h3 class="experience-role">Software Intern</h3>
+              <div class="experience-company">Avantel Pvt. Ltd.</div>
+              <ul class="experience-bullets" style="margin-top: 20px;">
+                <li>Enhanced website functionality and user interface components using HTML and CSS.</li>
+                <li>Supported development of an automated OMR evaluation system.</li>
+                <li>Contributed to workflow automation and reduced manual processing.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         PUBLICATION
+         ===================================================== -->
+    <section class="section" id="publication">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow">Research note</p>
+            <h2>Publication.</h2>
+          </div>
+          <p>A contribution connecting retail analytics, time-series modelling and practical forecasting.</p>
+        </div>
+
+        <article class="research-note reveal">
+          <div>
+            <h3 class="research-title">Retail sales prediction using intelligent time-series analysis</h3>
+            <p class="research-description">
+              Contributed Chapter 17 to the book <em>Hyper-Intelligent Networks</em> (Wiley-Scrivener),
+              developing an end-to-end retail sales prediction pipeline using time-series analysis.
+            </p>
+          </div>
+
+          <div class="research-meta">
+            <div class="research-meta-block">
+              <div class="research-meta-label">Published</div>
+              <div class="research-meta-value">Wiley-Scrivener · December 2025</div>
+            </div>
+
+            <div class="research-meta-block">
+              <div class="research-meta-label">Methods</div>
+              <div class="research-tags">
+                <span class="tech">Exploratory Data Analysis</span>
+                <span class="tech">Feature Engineering</span>
+                <span class="tech">ARIMA</span>
+                <span class="tech">SARIMA</span>
+                <span class="tech">Forecasting</span>
+                <span class="tech">Retail analytics</span>
+              </div>
+            </div>
+
+            <div class="research-meta-block">
+              <div class="research-meta-label">Research visual</div>
+              <svg viewBox="0 0 420 90" width="100%" height="90" aria-label="Decorative research time-series visual">
+                <path d="M5 72 C38 64, 42 44, 72 53 S104 32, 132 40 S166 20, 192 31 S224 60, 252 43 S284 15, 314 27 S350 48, 378 22 S404 12, 415 18"
+                      fill="none" stroke="var(--accent)" stroke-width="1.2"/>
+              </svg>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         ABOUT
+         ===================================================== -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow">About the approach</p>
+            <h2>Understand<br>before modelling.</h2>
+          </div>
+          <p>A practical approach to data, analytical methods and communication.</p>
+        </div>
+
+        <div class="about-grid reveal">
+          <div class="about-index">01 / APPROACH</div>
+          <div class="about-copy">
+            <p>
+              I work at the intersection of data analysis, machine learning and practical technology.
+              My focus is not simply building models, but understanding the problem, preparing reliable data,
+              selecting appropriate analytical approaches and communicating results clearly.
+            </p>
+            <p>
+              I have worked across transactional analytics, financial graph data, forecasting,
+              databases and data-driven applications.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         SKILLS
+         ===================================================== -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow">Technical matrix</p>
+            <h2>Tools for<br>the work.</h2>
+          </div>
+          <p>A focused stack across programming, analytics, machine learning, visualisation, databases and engineering.</p>
+        </div>
+
+        <div class="skill-matrix">
+          <div class="skill-group reveal">
+            <h3>Programming</h3>
+            <div class="skill-items">
+              <span>Python</span><span>SQL</span>
+            </div>
+          </div>
+
+          <div class="skill-group reveal">
+            <h3>Data &amp; analytics</h3>
+            <div class="skill-items">
+              <span>Pandas</span><span>NumPy</span><span>EDA</span>
+              <span>Statistical Analysis</span><span>Feature Engineering</span>
+            </div>
+          </div>
+
+          <div class="skill-group reveal">
+            <h3>Machine learning</h3>
+            <div class="skill-items">
+              <span>Scikit-learn</span><span>Random Forest</span><span>Regression</span>
+              <span>Predictive Modelling</span><span>ARIMA</span><span>SARIMA</span>
+            </div>
+          </div>
+
+          <div class="skill-group reveal">
+            <h3>Visualisation</h3>
+            <div class="skill-items">
+              <span>Power BI</span><span>Tableau</span><span>Matplotlib</span>
+            </div>
+          </div>
+
+          <div class="skill-group reveal">
+            <h3>Databases</h3>
+            <div class="skill-items">
+              <span>PostgreSQL</span><span>MySQL</span><span>Microsoft SQL Server</span><span>Neo4j</span>
+            </div>
+          </div>
+
+          <div class="skill-group reveal">
+            <h3>Engineering</h3>
+            <div class="skill-items">
+              <span>FastAPI</span><span>Flask</span><span>SQLAlchemy</span>
+              <span>Git</span><span>GitHub</span><span>ETL Pipelines</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         EDUCATION
+         ===================================================== -->
+    <section class="section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow">Education</p>
+            <h2>Foundation.</h2>
+          </div>
+          <p>Academic training in data science and artificial intelligence.</p>
+        </div>
+
+        <div class="education-grid">
+          <article class="education-item reveal">
+            <h3 class="education-degree">MSc Data Science</h3>
+            <div class="education-institution">Heriot-Watt University</div>
+            <div class="education-years">2025 — 2026</div>
+          </article>
+
+          <article class="education-item reveal">
+            <h3 class="education-degree">BTech Data Science &amp; Artificial Intelligence</h3>
+            <div class="education-institution">ICFAI Foundation for Higher Education</div>
+            <div class="education-years">2020 — 2024</div>
+          </article>
+        </div>
+
+        <div class="exploring reveal">
+          <p class="exploring-title">Currently exploring</p>
+          <div class="exploring-list">
+            <span>AI-enabled data applications</span>
+            <span>Generative AI</span>
+            <span>Data engineering workflows</span>
+            <span>Machine learning systems</span>
+            <span>Practical analytics</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         CONTACT
+         ===================================================== -->
+    <section class="section contact" id="contact">
+      <div class="container contact-grid">
+        <div class="reveal">
+          <p class="eyebrow">Contact</p>
+          <h2>Let's work<br>with <span class="accent">data.</span></h2>
+          <p class="contact-copy">
+            Open to opportunities across data science, data analytics and data engineering.
+          </p>
+        </div>
+
+        <div class="contact-links reveal">
+          <a class="contact-link" href="https://www.linkedin.com/in/akarsh-vuttaradi/" target="_blank" rel="noopener noreferrer">
+            <span>LinkedIn</span><span>↗</span>
+          </a>
+          <a class="contact-link" href="https://github.com/imakarshv" target="_blank" rel="noopener noreferrer">
+            <span>GitHub</span><span>↗</span>
+          </a>
+          <a class="contact-link" href="mailto:akarshvuttaradi891@gmail.com">
+            <span>Email</span><span>↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =======================================================
+       FOOTER
+       ======================================================= -->
+  <footer>
+    <div class="container footer-inner">
+      <strong>AKARSH VUTTARADI</strong>
+      <span>DATA / SIGNAL / SYSTEMS</span>
+      <span>© 2026</span>
+    </div>
+  </footer>
+
+  <script>
+    // Navigation appearance on scroll
+    const nav = document.querySelector(".site-nav");
+    const updateNav = () => nav.classList.toggle("scrolled", window.scrollY > 20);
+    updateNav();
+    window.addEventListener("scroll", updateNav, { passive: true });
+
+    // Mobile navigation
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      const open = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(open));
+      menuToggle.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation");
+      });
+    });
+
+    // Reveal-on-scroll
+    const revealItems = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      revealItems.forEach(item => observer.observe(item));
+    } else {
+      revealItems.forEach(item => item.classList.add("is-visible"));
+    }
+
+    // Real metric count-up
+    const counters = document.querySelectorAll("[data-count]");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const animateCounter = (el) => {
+      const target = Number(el.dataset.count);
+      const suffix = el.dataset.suffix || "";
+
+      if (reduceMotion) {
+        el.textContent = target.toLocaleString() + suffix;
+        return;
+      }
+
+      const duration = 1100;
+      const start = performance.now();
+
+      const tick = now => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const value = Math.round(target * eased);
+        el.textContent = value.toLocaleString() + suffix;
+
+        if (progress < 1) requestAnimationFrame(tick);
+      };
+
+      requestAnimationFrame(tick);
+    };
+
+    if ("IntersectionObserver" in window) {
+      const metricObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.55 });
+
+      counters.forEach(counter => metricObserver.observe(counter));
+    } else {
+      counters.forEach(animateCounter);
+    }
+  </script>
+</body>
+</html>
