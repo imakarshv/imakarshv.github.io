@@ -23,8 +23,8 @@
       --text: #eef4ff;
       --muted: #9ba8ba;
       --faint: #647184;
-      --accent: #4da3ff;
-      --accent-soft: rgba(77, 163, 255, 0.12);
+      --accent: #8ab4ff;
+      --accent-soft: rgba(138, 180, 255, 0.10);
       --amber: #7dd3fc;
       --border: rgba(180, 205, 235, 0.13);
       --border-strong: rgba(120, 180, 245, 0.28);
@@ -1388,6 +1388,8 @@
         <a href="#publication">Publication</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch theme">Light</button>
+        <a class="nav-cv" href="Akarsh_Vuttaradi_CV.pdf" download>CV ↘</a>
       </nav>
 
       <div class="nav-status">
@@ -1410,13 +1412,12 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy reveal">
-          <p class="hero-kicker">DATA SCIENCE / ANALYTICS / MACHINE LEARNING</p>
+          <p class="hero-kicker">DATA / ANALYTICS / TRANSFORMATION / MACHINE LEARNING</p>
 
           <h1>Turning <em>data</em> into<br>decisions.</h1>
 
           <p class="hero-description">
-            MSc Data Science graduate building analytical, machine learning and
-            data-driven solutions across real-world problems.
+            MSc Data Science graduate with practical experience across data analytics, business intelligence, data-driven applications, process improvement and machine learning.
           </p>
 
           <div class="hero-tags" aria-label="Core skills">
@@ -1436,7 +1437,7 @@
 
           <div class="hero-status">
             <span class="status-dot" aria-hidden="true"></span>
-            Open to data &amp; analytics opportunities
+            Open to data, analytics &amp; transformation opportunities
           </div>
         </div>
 
@@ -1503,6 +1504,18 @@
       </div>
     </section>
 
+    <section class="section" aria-label="Capabilities">
+      <div class="container">
+        <div class="section-heading reveal"><div><p class="eyebrow">Capabilities</p><h2>What I<br>do.</h2></div><p>Combining analytical thinking, technical delivery and practical process improvement.</p></div>
+        <div class="capabilities reveal">
+          <div class="capability"><h3>Analyse</h3><p>SQL, Python, statistics, business analysis, KPIs and data-driven problem solving.</p></div>
+          <div class="capability"><h3>Build</h3><p>Databases, APIs, ETL/ELT workflows, data pipelines and practical data solutions.</p></div>
+          <div class="capability"><h3>Visualise</h3><p>Power BI, dashboards, reporting and clear analytical outputs for stakeholders.</p></div>
+          <div class="capability"><h3>Improve</h3><p>Requirements analysis, process improvement, A/B testing, documentation and project support.</p></div>
+        </div>
+      </div>
+    </section>
+
     <!-- =====================================================
          SELECTED WORK
          ===================================================== -->
@@ -1539,8 +1552,8 @@
                   <li>Customer segmentation</li>
                   <li>SQL analytical workflows</li>
                   <li>Power BI dashboard development</li>
-                  <li>Customer retention prediction</li>
-                  <li>High-value customer identification</li>
+                  <li>Pricing analysis</li>
+                  <li>KPI and trend analysis</li>
                 </ul>
               </div>
 
@@ -1550,9 +1563,7 @@
                   <span class="tech">Python</span>
                   <span class="tech">SQL</span>
                   <span class="tech">Pandas</span>
-                  <span class="tech">NumPy</span>
                   <span class="tech">Power BI</span>
-                  <span class="tech">Scikit-learn</span>
                   <span class="tech">PostgreSQL</span>
                 </div>
 
@@ -1624,7 +1635,6 @@
                   <li>Data ingestion</li>
                   <li>Graph construction</li>
                   <li>Graph feature engineering</li>
-                  <li>Graph embeddings</li>
                   <li>Relationship analysis</li>
                   <li>Random Forest modelling</li>
                   <li>Model evaluation</li>
@@ -1638,7 +1648,6 @@
                   <span class="tech">Python</span>
                   <span class="tech">Neo4j</span>
                   <span class="tech">Neo4j Graph Data Science</span>
-                  <span class="tech">NetworkX</span>
                   <span class="tech">Scikit-learn</span>
                   <span class="tech">Machine Learning</span>
                 </div>
@@ -1755,15 +1764,16 @@
               <h3 class="experience-role">Data Science &amp; Technology Volunteer</h3>
               <div class="experience-company">Vasudhaiva Kutumbakam</div>
               <p class="experience-description">
-                Leading the design and development of the organisation's digital platform to support
-                online presence and digital operations.
+                Contribute to a database-backed organisational platform, supporting structured data management,
+                technical delivery, reporting and practical process improvements.
               </p>
               <ul class="experience-bullets">
-                <li>Developed a web application using FastAPI, PostgreSQL, HTML, CSS, JavaScript, Bootstrap, Jinja2 and SQLAlchemy.</li>
-                <li>Designed a relational PostgreSQL database for organisational content, events, projects and galleries.</li>
-                <li>Built a secure administrator portal with authentication.</li>
-                <li>Worked with NGO stakeholders to gather requirements and improve the platform.</li>
-                <li>Managed source code and version control using Git and GitHub.</li>
+                <li>Develop and maintain backend functionality using Python, FastAPI and PostgreSQL, working with structured data and relational databases.</li>
+                <li>Analyse stakeholder requirements and translate them into practical technical solutions aligned with organisational needs.</li>
+                <li>Contribute to data ingestion, validation, transformation, ETL/ELT workflows and data pipelines supporting reliable processing.</li>
+                <li>Investigate data and system issues, contributing to troubleshooting, performance tuning and continuous improvements.</li>
+                <li>Support project planning, delivery, milestone tracking, governance, documentation and reporting while maintaining accurate information.</li>
+                <li>Collaborate with technical and non-technical stakeholders and use Microsoft Excel and PowerPoint to organise information, analyse data and communicate findings.</li>
               </ul>
             </div>
           </article>
@@ -1771,14 +1781,15 @@
           <article class="experience-item reveal">
             <div class="experience-meta">Sep 2023 — Dec 2023</div>
             <div>
-              <h3 class="experience-role">Data Science Intern</h3>
+              <h3 class="experience-role">Junior Data Scientist Intern</h3>
               <div class="experience-company">APPIT Software Solutions</div>
               <ul class="experience-bullets" style="margin-top: 20px;">
-                <li>Developed a Flask-based data management solution integrating SQL-driven data workflows.</li>
-                <li>Designed relational database architecture replacing Excel-based workflows.</li>
-                <li>Automated data upload and retrieval processes.</li>
-                <li>Used Flask-SQLAlchemy for database interactions.</li>
-                <li>Improved data accessibility and workflow efficiency.</li>
+                <li>Identified a bottleneck in a sequential Excel-based data collection process and analysed the workflow to identify opportunities for improvement.</li>
+                <li>Independently developed a Flask prototype using Python and Flask-SQLAlchemy to centralise data entry and improve access to collected information.</li>
+                <li>Designed a workflow enabling downstream users to access available records without waiting for completion of the entire spreadsheet.</li>
+                <li>Supported data collection, ingestion, validation and structured processing, including data upload and download functionality.</li>
+                <li>Supported A/B testing by helping compare the existing Excel-based process with the proposed workflow improvement.</li>
+                <li>Worked with stakeholders to understand requirements and supported project delivery, testing, documentation and refinement under managerial guidance.</li>
               </ul>
             </div>
           </article>
@@ -1933,6 +1944,15 @@
           </div>
 
           <div class="skill-group reveal">
+            <h3>Data &amp; transformation</h3>
+            <div class="skill-items">
+              <span>ETL / ELT</span><span>Data Pipelines</span><span>Data Wrangling</span>
+              <span>Requirements Analysis</span><span>Process Improvement</span><span>Project Delivery</span>
+              <span>Reporting</span><span>Governance</span><span>Microsoft Excel</span><span>PowerPoint</span>
+            </div>
+          </div>
+
+          <div class="skill-group reveal">
             <h3>Engineering</h3>
             <div class="skill-items">
               <span>FastAPI</span><span>Flask</span><span>SQLAlchemy</span>
@@ -1992,7 +2012,7 @@
           <p class="eyebrow">Contact</p>
           <h2>Let's work<br>with <span class="accent">data.</span></h2>
           <p class="contact-copy">
-            Open to opportunities across data science, data analytics and data engineering.
+            Open to opportunities across data analytics, business intelligence, transformation and data-driven technology.
           </p>
         </div>
 
@@ -2030,6 +2050,20 @@
     window.addEventListener("scroll", updateNav, { passive: true });
 
     // Mobile navigation
+    const themeToggle = document.getElementById("themeToggle");
+    const savedTheme = localStorage.getItem("portfolio-theme");
+    if (savedTheme === "light") document.documentElement.dataset.theme = "light";
+    if (themeToggle) {
+      const updateThemeLabel = () => themeToggle.textContent = document.documentElement.dataset.theme === "light" ? "Dark" : "Light";
+      updateThemeLabel();
+      themeToggle.addEventListener("click", () => {
+        const light = document.documentElement.dataset.theme !== "light";
+        document.documentElement.dataset.theme = light ? "light" : "dark";
+        localStorage.setItem("portfolio-theme", light ? "light" : "dark");
+        updateThemeLabel();
+      });
+    }
+
     const menuToggle = document.getElementById("menuToggle");
     const navLinks = document.getElementById("navLinks");
 
@@ -2109,4 +2143,22 @@
     }
   </script>
 </body>
-</html>
+</html
+    :root[data-theme="light"] {
+      --bg: #f5f7fa; --bg-2: #eef1f5; --surface: #ffffff; --surface-2: #f0f3f7;
+      --text: #111827; --muted: #536071; --faint: #7a8798; --accent: #315fce;
+      --accent-soft: rgba(49,95,206,.08); --border: rgba(20,35,55,.12); --border-strong: rgba(49,95,206,.28);
+    }
+    :root[data-theme="light"] body::before { opacity: .18; }
+    :root[data-theme="light"] .signal-panel, :root[data-theme="light"] .project-visual { background: rgba(255,255,255,.75); }
+
+
+    .theme-toggle,.nav-cv{padding:8px 10px;border:1px solid var(--border);color:var(--muted);font:500 .62rem "JetBrains Mono",monospace;letter-spacing:.06em;text-transform:uppercase}
+    .theme-toggle:hover,.nav-cv:hover{color:var(--text);border-color:var(--accent)}
+    .capabilities{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .capability{padding:30px 24px;min-height:190px;border-right:1px solid var(--border)}
+    .capability:last-child{border-right:0}.capability h3{margin:0 0 12px;font:500 .7rem "JetBrains Mono",monospace;letter-spacing:.1em;color:var(--accent);text-transform:uppercase}.capability p{margin:0;color:var(--muted);font-size:.92rem;line-height:1.7}
+    @media(max-width:980px){.capabilities{grid-template-columns:repeat(2,1fr)}.capability:nth-child(2){border-right:0}.capability{border-bottom:1px solid var(--border)}}
+    @media(max-width:760px){.theme-toggle,.nav-cv{display:block}.capabilities{grid-template-columns:1fr}.capability{border-right:0}}
+
+>
