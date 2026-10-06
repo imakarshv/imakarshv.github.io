@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Akarsh Vuttaradi — MSc Data Science graduate working across data analytics, machine learning, statistical modelling and data-driven applications.">
-  <meta name="theme-color" content="#0b0d0c">
+  <meta name="theme-color" content="#f4f6f8">
   <title>Akarsh Vuttaradi | Data Science &amp; Analytics</title>
   <meta property="og:title" content="Akarsh Vuttaradi | Data Science &amp; Analytics">
   <meta property="og:description" content="Data analytics, machine learning, statistical modelling and data-driven applications.">
@@ -18,24 +18,6 @@
     /* =========================================================
        1. VARIABLES
        ========================================================= */
-    :root {
-      --bg: #05070b;
-      --bg-2: #080b12;
-      --surface: #0b1019;
-      --surface-2: #101722;
-      --text: #eef4ff;
-      --muted: #9ba8ba;
-      --faint: #647184;
-      --accent: #8ab4ff;
-      --accent-soft: rgba(138, 180, 255, 0.10);
-      --amber: #7dd3fc;
-      --border: rgba(180, 205, 235, 0.13);
-      --border-strong: rgba(120, 180, 245, 0.28);
-      --max: 1180px;
-      --radius: 2px;
-      --nav-height: 76px;
-    }
-
     /* =========================================================
        2. RESET
        ========================================================= */
@@ -157,7 +139,7 @@
     .tech:hover,
     .exploring-list span:hover {
       border-color: rgba(77,163,255,0.48);
-      color: var(--text);
+      color: var(--accent);
       background: rgba(77,163,255,0.045);
     }
 
@@ -270,7 +252,7 @@
       white-space: nowrap;
     }
 
-    .brand span { color: var(--accent); }
+    .brand-wordmark > span { color: var(--accent); }
 
     .nav-links {
       display: flex;
@@ -297,8 +279,8 @@
   align-items: center;
   gap: 8px;
   padding: 8px 11px;
-  border: 1px solid var(--border-strong);
-  color: var(--accent);
+  border: 1px solid rgba(46,139,87,.30);
+  color: #2e8b57;
   font: 500 0.63rem "JetBrains Mono", monospace;
   letter-spacing: 0.03em;
   text-transform: uppercase;
@@ -309,7 +291,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--accent);
+  background: #2e8b57;
   box-shadow: 0 0 0 4px var(--accent-soft);
 }
 
@@ -325,7 +307,7 @@
        ========================================================= */
     .hero {
       min-height: 100svh;
-      padding: calc(var(--nav-height) + 70px) 0 70px;
+      padding: calc(var(--nav-height) + 130px) 0 70px;
       display: flex;
       align-items: center;
       position: relative;
@@ -1376,35 +1358,7 @@
         opacity: 1;
         transform: none;
       }
-    }
-  :root[data-theme="light"] {
-  --bg: #f4f6f8;
-  --bg-2: #edf1f5;
-  --surface: #ffffff;
-  --surface-2: #f7f9fb;
-  --text: #14202b;
-  --muted: #5b6875;
-  --faint: #7d8995;
-  --accent: #2d63d7;
-  --accent-soft: rgba(45,99,215,.08);
-  --border: rgba(20,35,55,.12);
-  --border-strong: rgba(45,99,215,.28);
-}
-:root[data-theme="light"] body::before { opacity: .12; }
-:root[data-theme="light"] .signal-panel,
-:root[data-theme="light"] .project-visual { background: rgba(255,255,255,.78); }
-
-.theme-toggle,.nav-cv {
-  padding: 8px 10px;
-  border: 1px solid var(--border);
-  color: var(--muted);
-  font: 500 .62rem "JetBrains Mono",monospace;
-  letter-spacing:.06em;
-  text-transform:uppercase
-}
-.theme-toggle:hover,.nav-cv:hover { color:var(--text); border-color:var(--accent) }
-
-.capabilities {
+    }.capabilities {
   display:grid;
   grid-template-columns:repeat(4,1fr);
   border-top:1px solid var(--border);
@@ -1431,28 +1385,12 @@
   .capability{border-bottom:1px solid var(--border)}
 }
 @media(max-width:760px){
-  .theme-toggle,.nav-cv{display:block}
   .capabilities{grid-template-columns:1fr}
   .capability{border-right:0}
 }
 
   
-/* Portfolio redesign layer — preserves the existing content and interaction model. */
-:root {
-  --bg: #070b10;
-  --bg-2: #0b1118;
-  --surface: #0d151e;
-  --surface-2: #111c27;
-  --text: #f1f5f9;
-  --muted: #9aa8b7;
-  --faint: #667585;
-  --accent: #77a9ff;
-  --accent-soft: rgba(119,169,255,.09);
-  --border: rgba(190,210,235,.13);
-  --border-strong: rgba(119,169,255,.34);
-  --max: 1180px;
-  --radius: 6px;
-}
+/* Portfolio refinement layer — preserves the existing content and interaction model. */
 body { background: var(--bg); }
 .hero-name {
   margin: 0 0 18px;
@@ -1477,7 +1415,7 @@ body { background: var(--bg); }
 .project-visual { border-radius: var(--radius); }
 .signal-panel { border-radius: var(--radius); }
 .button { border-radius: 4px; }
-.tag, .tech, .theme-toggle, .nav-cv, .contact-link { border-radius: 4px; }
+.tag, .tech, .nav-cv, .contact-link { border-radius: 4px; }
 .metric { background: transparent; }
 .section-heading { margin-bottom: 52px; }
 .project { min-height: 0; }
@@ -1489,19 +1427,129 @@ body { background: var(--bg); }
 }
 
   
-/* Light theme — default presentation */
+/* Brand logo */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-logo {
+  width: 30px;
+  height: 34px;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
+.brand-wordmark {
+  color: var(--text);
+}
+
+.brand-wordmark > span {
+  color: var(--accent);
+}
+
+/* Floating back-to-top control */
+.scroll-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 90;
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  background: rgba(255,255,255,.94);
+  box-shadow: 0 10px 28px rgba(16,42,67,.10);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 180ms ease, visibility 180ms ease, transform 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.scroll-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-top img {
+  width: 24px;
+  height: 28px;
+  object-fit: contain;
+  transition: filter 180ms ease;
+}
+
+.scroll-top:hover,
+.scroll-top:focus-visible {
+  background: var(--accent);
+  border-color: var(--accent);
+  outline: none;
+}
+
+.scroll-top:hover img,
+.scroll-top:focus-visible img {
+  filter: brightness(0) invert(1);
+}
+
+/* Contact links use restrained brand-inspired treatments */
+.contact-link.linkedin:hover {
+  color: #0a66c2;
+  border-color: #0a66c2;
+  background: rgba(10,102,194,.05);
+}
+
+.contact-link.github:hover {
+  color: #24292f;
+  border-color: #24292f;
+  background: rgba(36,41,47,.05);
+}
+
+.contact-link.email:hover {
+  color: #b42318;
+  border-color: #b42318;
+  background: rgba(180,35,24,.05);
+}
+
+.nav-cv {
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font: 500 .62rem "JetBrains Mono", monospace;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.nav-cv:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+@media (max-width: 760px) {
+  .brand-logo { width: 27px; height: 31px; }
+  .brand { gap: 8px; }
+  .scroll-top { right: 16px; bottom: 16px; width: 46px; height: 46px; }
+  .scroll-top img { width: 22px; height: 25px; }
+}
+
+/* Light theme — single presentation */
 :root {
-  --bg: #f5f7fa;
-  --bg-2: #edf2f7;
+  --bg: #f4f6f8;
+  --bg-2: #edf1f5;
   --surface: #ffffff;
-  --surface-2: #f8fafc;
-  --text: #102a43;
-  --muted: #526579;
-  --faint: #7a8b9d;
-  --accent: #2457b8;
-  --accent-soft: rgba(36,87,184,.08);
-  --border: rgba(16,42,67,.13);
-  --border-strong: rgba(36,87,184,.30);
+  --surface-2: #f7f9fb;
+  --text: #14202b;
+  --muted: #5b6875;
+  --faint: #7d8995;
+  --accent: #2d63d7;
+  --accent-soft: rgba(45,99,215,.08);
+  --amber: #2d63d7;
+  --border: rgba(20,35,55,.12);
+  --border-strong: rgba(45,99,215,.28);
+  --max: 1180px;
+  --radius: 6px;
 }
 
 body {
@@ -1523,7 +1571,7 @@ body::after {
 }
 
 .site-nav.scrolled {
-  background: rgba(245,247,250,.90);
+  background: rgba(244,246,248,.90);
   border-color: var(--border);
 }
 
@@ -1532,8 +1580,10 @@ body::after {
 }
 
 .nav-links a:hover,
-.nav-links a:focus-visible,
-.theme-toggle:hover,
+.nav-links a:focus-visible {
+  color: var(--accent);
+}
+
 .nav-cv:hover {
   color: var(--text);
 }
@@ -1543,8 +1593,8 @@ body::after {
 }
 
 .status-dot {
-  background: var(--accent);
-  box-shadow: 0 0 0 4px rgba(36,87,184,.07);
+  background: #2e8b57;
+  box-shadow: 0 0 0 4px var(--accent-soft);
 }
 
 .button.primary {
@@ -1607,7 +1657,7 @@ body::after {
 
 @media (max-width: 760px) {
   .nav-links {
-    background: rgba(245,247,250,.98);
+    background: rgba(244,246,248,.98);
   }
 }
 
@@ -1620,16 +1670,15 @@ body::after {
        ======================================================= -->
   <header class="site-nav" id="top">
     <div class="container nav-inner">
-      <a class="brand" href="#top" aria-label="Akarsh Vuttaradi home">AKARSH <span>/</span> DATA</a>
+      <a class="brand" href="#top" aria-label="Akarsh Vuttaradi"><img class="brand-logo" src="AV_logo.png" alt="" aria-hidden="true"><span class="brand-wordmark">AKARSH VUTTARADI </span></a>
 
       <nav class="nav-links" id="navLinks" aria-label="Primary navigation">
-        <a href="#top">Home</a>
+        
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
         <a href="#work">Projects</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
-        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark theme">Dark</button>
         <a class="nav-cv" href="Akarsh_Vuttaradi_CV.pdf" download>CV ↘</a>
       </nav>
 
@@ -1653,9 +1702,9 @@ body::after {
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy reveal">
-          <p class="hero-kicker">MSc DATA SCIENCE · DATA ANALYTICS · MACHINE LEARNING</p>
+          <br><br><br><p class="hero-kicker">MSc DATA SCIENCE · DATA ANALYTICS · MACHINE LEARNING</p>
 
-          <p class="hero-name">AKARSH VUTTARADI</p>
+          
 <h1>Turning <em>data</em> into<br>decisions.</h1>
 
           <p class="hero-description">
@@ -1673,7 +1722,7 @@ body::after {
           </div>
 
           <div class="hero-actions">
-            <a class="button primary" href="#work">View selected work <span aria-hidden="true">↘</span></a>
+            <a class="button primary" href="#work">View my work <span aria-hidden="true">↘</span></a>
             <a class="button" href="Akarsh_Vuttaradi_CV.pdf" download>Download CV <span aria-hidden="true">↓</span></a>
             <a class="button" href="#contact">Get in touch <span aria-hidden="true">↗</span></a>
           </div>
@@ -1737,7 +1786,7 @@ body::after {
           <div class="metric-label">Financial entities modelled</div>
         </div>
         <div class="metric reveal">
-          <div class="metric-value"><span class="accent">$9.73M</span></div>
+          <div class="metric-value"><span class="accent">£9.73M</span></div>
           <div class="metric-label">Retail revenue analysed</div>
         </div>
         <div class="metric reveal">
@@ -1766,7 +1815,7 @@ body::after {
       <div class="container">
         <div class="section-heading reveal">
           <div>
-            <p class="eyebrow">Selected work</p>
+            <p class="eyebrow">My work</p>
             <h2>Analytical<br>case studies.</h2>
           </div>
           <p>Three projects showing how I work with transactional data, graph relationships and time-series forecasting.</p>
@@ -2264,13 +2313,13 @@ body::after {
         </div>
 
         <div class="contact-links reveal">
-          <a class="contact-link" href="https://www.linkedin.com/in/akarsh-vuttaradi/" target="_blank" rel="noopener noreferrer">
+          <a class="contact-link linkedin" href="https://www.linkedin.com/in/akarsh-vuttaradi/" target="_blank" rel="noopener noreferrer">
             <span>LinkedIn</span><span>↗</span>
           </a>
-          <a class="contact-link" href="https://github.com/imakarshv" target="_blank" rel="noopener noreferrer">
+          <a class="contact-link github" href="https://github.com/imakarshv" target="_blank" rel="noopener noreferrer">
             <span>GitHub</span><span>↗</span>
           </a>
-          <a class="contact-link" href="mailto:akarshvuttaradi891@gmail.com">
+          <a class="contact-link email" href="mailto:akarshvuttaradi891@gmail.com">
             <span>Email</span><span>↗</span>
           </a>
         </div>
@@ -2284,10 +2333,15 @@ body::after {
   <footer>
     <div class="container footer-inner">
       <strong>AKARSH VUTTARADI</strong>
-      <span>DATA / SIGNAL / SYSTEMS</span>
+      <span>DATA SCIENCE</span>
       <span>© 2026</span>
     </div>
   </footer>
+
+
+  <a class="scroll-top" id="scrollTop" href="#top" aria-label="Back to top">
+    <img src="AV_logo.png" alt="" aria-hidden="true">
+  </a>
 
   <script>
     // Navigation appearance on scroll
@@ -2296,21 +2350,18 @@ body::after {
     updateNav();
     window.addEventListener("scroll", updateNav, { passive: true });
 
-    // Mobile navigation
-    const themeToggle = document.getElementById("themeToggle");
-    const savedTheme = localStorage.getItem("portfolio-theme");
-    if (savedTheme === "light") document.documentElement.dataset.theme = "light";
-    if (themeToggle) {
-      const updateThemeLabel = () => themeToggle.textContent = document.documentElement.dataset.theme === "light" ? "Dark" : "Light";
-      updateThemeLabel();
-      themeToggle.addEventListener("click", () => {
-        const light = document.documentElement.dataset.theme !== "light";
-        document.documentElement.dataset.theme = light ? "light" : "dark";
-        localStorage.setItem("portfolio-theme", light ? "light" : "dark");
-        updateThemeLabel();
-      });
-    }
+    // Back-to-top control
+    const scrollTop = document.getElementById("scrollTop");
+    const updateScrollTop = () => scrollTop.classList.toggle("visible", window.scrollY > 420);
+    updateScrollTop();
+    window.addEventListener("scroll", updateScrollTop, { passive: true });
 
+    scrollTop.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Mobile navigation
     const menuToggle = document.getElementById("menuToggle");
     const navLinks = document.getElementById("navLinks");
 
@@ -2320,7 +2371,7 @@ body::after {
       menuToggle.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
     });
 
-    navLinks.querySelectorAll("a, button").forEach(link => {
+    navLinks.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", () => {
         navLinks.classList.remove("open");
         menuToggle.setAttribute("aria-expanded", "false");
@@ -2390,21 +2441,4 @@ body::after {
     }
   </script>
 </body>
-</html
-    :root[data-theme="light"] {
-      --bg: #f5f7fa; --bg-2: #eef1f5; --surface: #ffffff; --surface-2: #f0f3f7;
-      --text: #111827; --muted: #536071; --faint: #7a8798; --accent: #315fce;
-      --accent-soft: rgba(49,95,206,.08); --border: rgba(20,35,55,.12); --border-strong: rgba(49,95,206,.28);
-    }
-    :root[data-theme="light"] body::before { opacity: .18; }
-    :root[data-theme="light"] .signal-panel, :root[data-theme="light"] .project-visual { background: rgba(255,255,255,.75); }
-
-
-    .theme-toggle,.nav-cv{padding:8px 10px;border:1px solid var(--border);color:var(--muted);font:500 .62rem "JetBrains Mono",monospace;letter-spacing:.06em;text-transform:uppercase}
-    .theme-toggle:hover,.nav-cv:hover{color:var(--text);border-color:var(--accent)}
-    .capabilities{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-    .capability{padding:30px 24px;min-height:190px;border-right:1px solid var(--border)}
-    .capability:last-child{border-right:0}.capability h3{margin:0 0 12px;font:500 .7rem "JetBrains Mono",monospace;letter-spacing:.1em;color:var(--accent);text-transform:uppercase}.capability p{margin:0;color:var(--muted);font-size:.92rem;line-height:1.7}
-    @media(max-width:980px){.capabilities{grid-template-columns:repeat(2,1fr)}.capability:nth-child(2){border-right:0}.capability{border-bottom:1px solid var(--border)}}
-    @media(max-width:760px){.theme-toggle,.nav-cv{display:block}.capabilities{grid-template-columns:1fr}.capability{border-right:0}}
 </html>
